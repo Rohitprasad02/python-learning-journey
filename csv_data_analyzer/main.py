@@ -25,7 +25,6 @@ with open("sales.csv", "r") as file:
         profit = calculate_profit(revenue, total_cost)
         total_profit += profit
         total_revenue += revenue
-        print(f"{row['product']} - Profit: ₹{profit}")
 
         if revenue > highest_revenue:
             highest_revenue = revenue
@@ -38,7 +37,7 @@ with open("sales.csv", "r") as file:
 
         category_revenue[category] += revenue
 
-        print(f"{row['product']} - Revenue: {revenue}")
+        print(f"{row['product']} - Revenue: ₹{revenue} | Profit: ₹{profit}")
 
     print("Category-wise Revenue:")
 
