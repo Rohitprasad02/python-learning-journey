@@ -48,8 +48,8 @@ with open("sales.csv", "r") as file:
         print(f"Average Revenue: ₹{average:.2f}")
     else:
         print("No sales data available.")
-
-    print("Profit:", profit)
+        
+    print(f"Total Profit: ₹{total_profit}")
     print(f"Total Revenue: {total_revenue}")
     print(f"Best Product: {best_product}")
     print(f"Highest Revenue: {highest_revenue}")
