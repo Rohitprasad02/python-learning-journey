@@ -12,12 +12,15 @@ with open("sales.csv", "r") as file:
     total_revenue = 0
     total_profit = 0
     count = 0
+    total_quantity = 0
     category_revenue = {}
     for row in reader:
         count += 1
         price = int(row["price"])
         quantity = int(row["quantity"])
         cost_price = int(row["cost_price"])
+
+        total_quantity += quantity
 
 
         revenue = calculate_revenue(price, quantity)
@@ -51,5 +54,6 @@ with open("sales.csv", "r") as file:
         
     print(f"Total Profit: ₹{total_profit}")
     print(f"Total Revenue: {total_revenue}")
+    print(f"Total Items Sold: {total_quantity}")
     print(f"Best Product: {best_product}")
     print(f"Highest Revenue: {highest_revenue}")
