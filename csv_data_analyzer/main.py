@@ -15,11 +15,18 @@ with open("sales.csv", "r") as file:
     total_quantity = 0
     category_revenue = {}
     for row in reader:
-        count += 1
-        price = int(row["price"])
-        quantity = int(row["quantity"])
-        cost_price = int(row["cost_price"])
+        try:
+            price = int(row["price"])
+            quantity = int(row["quantity"])
+            cost_price = int(row["cost_price"])
+        except ValueError:
+            print("Invalid numeric data!")
+            continue
+        if price < 0 or quantity < 0 or cost_price < 0:
+            print("Values cannot be negative!")
+            continue
 
+        count += 1
         total_quantity += quantity
 
 
