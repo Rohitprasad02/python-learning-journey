@@ -1,51 +1,215 @@
 
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    --background: #0b1120;
+    --surface: #151e30;
+    --surface-light: #1e293b;
+    --border: #334155;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f5f9;
-    color: #1e293b;
     margin: 0;
-    padding: 40px;
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 700px;
+    width: 100%;
+    max-width: 850px;
     margin: 0 auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 16px;
+}
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: #a5b4fc;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 h1 {
-    color: #2563eb;
+    margin: 8px 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
 }
 
 p {
-    color: #64748b;
+    color: var(--muted);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 24px;
+section,
+.panel {
+    margin: 20px 0;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
 }
 
-input,
-select,
-button {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
+label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 input,
 select {
-    border: 1px solid #cbd5e1;
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: var(--text);
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
 }
 
-button {
-    border: none;
-    background-color: #2563eb;
+input:focus,
+select:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 14px;
     color: white;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
     cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+    background: var(--primary-hover);
+}
+
+.button-secondary {
+    color: var(--text);
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+}
+
+.button-secondary:hover {
+    background: var(--border);
+}
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 12px 0;
+    padding: 16px;
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.expense-item p {
+    margin: 4px 0;
+    overflow-wrap: anywhere;
+}
+
+.expense-item strong {
+    color: var(--text);
+}
+
+.expense-actions,
+.form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.expense-actions form {
+    margin: 0;
+}
+
+.expense-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 8px 12px;
+    color: white;
+    background: #2563eb;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.expense-actions a:hover {
+    background: #1d4ed8;
+}
+
+.expense-actions button {
+    background: var(--danger);
+}
+
+.expense-actions button:hover {
+    background: var(--danger-hover);
+}
+
+.form-actions {
+    margin-top: 22px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    section,
+    .panel {
+        padding: 16px;
+    }
+
+    .expense-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .expense-actions {
+        width: 100%;
+    }
+
+    .form-actions button,
+    .form-actions .button {
+        flex: 1;
+    }
 }
