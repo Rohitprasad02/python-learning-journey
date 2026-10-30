@@ -1,0 +1,11 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Smart File Organizer test and generated files
+smart_file_organizer/test_files/
+smart_file_organizer/organized_files/
